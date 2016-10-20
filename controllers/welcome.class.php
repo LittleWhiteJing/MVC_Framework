@@ -1,4 +1,4 @@
-<?php 
+﻿<?php 
 !defined('TOKEN') && exit("Access denied!"); 
 
 class welcome extends base{
@@ -11,6 +11,9 @@ class welcome extends base{
 	
 	public function index(){
 		echo "This is Welcome Controller index Method!!";
+		$data['weekday'] = "四";
+		$data['weather'] = "下雨";
+		$this->load->view('welcome',$data);
 	}
 	
 	public function show(){ 

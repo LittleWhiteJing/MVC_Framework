@@ -29,7 +29,7 @@ class core{
     function init_request() {
         
         //导入配置文件
-        require ROOT_DIR . '/configures/config.php';
+        require ROOT_DIR . 'configures/config.php';
 		//发送原生HTTP头
         header('Content-type: text/html; charset=' . WEB_CHARSET);
         //获取查询字符串
@@ -71,7 +71,7 @@ class core{
     //设置控制器路径
     function load_control() {
     	//定义默认的控制器文件路径
-        $controlfile = ROOT_DIR . '/controllers/' . $this->controller . '.class.php';
+        $controlfile = ROOT_DIR . 'controllers/' . $this->controller . '.class.php';
         
 		/**
 		 *当有多种控制器时此处可以设置控制器路径的路由

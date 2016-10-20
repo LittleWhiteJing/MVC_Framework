@@ -5,6 +5,10 @@ error_reporting(E_ALL);
 define('TOKEN',TRUE);
 //定义根目录
 define('ROOT_DIR', str_replace(array('\\','//'), '/', dirname(__FILE__) . '/'));  
+//定义模型目录
+define('MODELS_DIR', ROOT_DIR . "models/");
+//定义视图目录
+define('VIEWS_DIR', ROOT_DIR . "views/");
 //包含核心类
 require ROOT_DIR . "core/core.class.php";
 //实例化核心类

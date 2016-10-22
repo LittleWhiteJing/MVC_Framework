@@ -3,7 +3,7 @@
 
 require_once ROOT_DIR . 'lib/db.class.php';
 
-require_once ROOT_DIR . 'configures/config.php';
+require_once APP_DIR . 'configures/config.php';
 
 class mbase {
 	

@@ -4,7 +4,8 @@
 	<meta http-equiv = "text/html;charset=utf-8"/>
 </head>
 <body>
-	<h2>今天星期：<?php echo $weekday;?></h2>
-	<h2>天气情况：<?php echo $weather;?></h2>
+	<h2>应用：<?php echo $app;?></h2>
+	<h2>控制器：<?php echo $controller;?></h2>
+	<h2>方法：<?php echo $method;?></h2>
 </body>
 </html>

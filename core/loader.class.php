@@ -30,13 +30,15 @@ class loader {
 		$this->baseobj->set_var($classname,$classobj);
 	}
 	
-	function view($viewname,$var = ''){
+	function view($viewname,$var = array()){
 		
 		$filepath = VIEWS_DIR . $viewname . '.php';
 		
-		foreach($var as $key=>$value){ 
-			$$key=$value; 
-		} 
+		if(!empty($var)){
+			foreach($var as $key=>$value){ 
+				$$key=$value; 
+			}
+		}			
 		
 		include $filepath;
 	}

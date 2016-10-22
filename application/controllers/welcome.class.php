@@ -10,9 +10,9 @@ class welcome extends base{
 	}
 	
 	public function index(){
-		echo "This is Welcome Controller index Method!!";
-		$data['weekday'] = "四";
-		$data['weather'] = "下雨";
+		$data['app'] = "welcome";
+		$data['controller'] = "welcome";
+		$data['method'] = "index";
 		$this->load->view('welcome',$data);
 	}
 	
@@ -22,7 +22,13 @@ class welcome extends base{
 		echo $res['username'];
 		echo "--------";
 		echo $res['password'];
+		redirect('welcome','test');
 	}
+	
+	public function test(){
+		echo "This is the method to jump!";
+	}
+	
 	
 	public function message(){
 		

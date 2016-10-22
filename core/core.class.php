@@ -11,6 +11,7 @@ require ROOT_DIR . '/lib/functions.php';
 require ROOT_DIR . '/core/base.class.php';
 
 class core{
+	
 	//默认控制器
 	public $controller = 'welcome';
 	//默认方法
@@ -29,49 +30,44 @@ class core{
     function init_request() {
         
         //导入配置文件
-        require ROOT_DIR . 'configures/config.php';
+        require APP_DIR . 'configures/config.php';
 		//发送原生HTTP头
         header('Content-type: text/html; charset=' . WEB_CHARSET);
-        //获取查询字符串
-        $querystring = isset($_SERVER['QUERY_STRING']) ? $_SERVER['QUERY_STRING'] : '';
-
+  
 		/**
 		 *此处可以设置对用户输入的字符进行过滤
          *
 		 */
+
 		
-		
-		
-        //捕获控制器和方法名
+			//普通模式
+		$querystring = isset($_SERVER['QUERY_STRING']) ? $_SERVER['QUERY_STRING'] : '';
 		$pos = strrpos($querystring, '&');
 		if ($pos !== false) {
 			$param1 = substr($querystring, 0, $pos);
 			$param2 = substr($querystring,$pos+1);
-
 			$tmp1 = strrpos($param1,'=');
-			$tmp2 = strrpos($param2,'=');
-			
+			$tmp2 = strrpos($param2,'=');	
 			/**
-			 *此处可以设置一个url字符映射机制
-             *
-		     */
-			
-			
+			*此处可以设置一个url字符映射机制
+			*
+			*/
 			//捕获控制器
-			if($tmp1 !== false){
+			if($tmp1 !== false)
 				$this->controller = substr($param1,$tmp1+1);
-			}
+	
 			//捕获方法
-			if($tmp2 !== false){
+			if($tmp2 !== false)
 				$this->method = substr($param2,$tmp2+1);
-			}
+			
 		}
+		
     }
 
     //设置控制器路径
     function load_control() {
     	//定义默认的控制器文件路径
-        $controlfile = ROOT_DIR . 'controllers/' . $this->controller . '.class.php';
+        $controlfile = APP_DIR . 'controllers/' . $this->controller . '.class.php';
         
 		/**
 		 *当有多种控制器时此处可以设置控制器路径的路由
@@ -118,6 +114,4 @@ class core{
     }
 
 }
-
-
 ?>

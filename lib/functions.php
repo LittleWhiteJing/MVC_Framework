@@ -20,8 +20,18 @@ function writetofile($filename, &$data) {
     }
 }
 
-function sayhello(){
-	
-	return "hello world!!";
+//生成控制器链接，方便在视图中使用
+function controlmap($controller,$method){
+	$pathstr = SITE_URL . "index.php?c=" . $controller . "&m=" . $method;
+	return $pathstr;
 }
+
+
+
+//控制器重定向，方便控制器跳转操作
+function redirect($controller,$method){
+	$pathstr = SITE_URL . "index.php?c=" . $controller . "&m=" . $method;
+	header('Location:'.$pathstr);
+}
+
 ?>

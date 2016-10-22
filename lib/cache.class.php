@@ -11,7 +11,7 @@ class cache {
     }
     //获取缓存文件
     function getfile($cachename) {
-        $this->cachefile = ROOT_DIR . '/data/cache/' . $cachename . '.php';
+        $this->cachefile = APP_DIR . '/datas/cache/' . $cachename . '.php';
     }
     //传入缓存名字和时间，返回缓存是否可用
     function isvalid($cachename, $cachetime) {

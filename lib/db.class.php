@@ -80,7 +80,7 @@ class db {
         //返回结果集
         return $query;
     }
-
+	
     /* 获取受影响的行数 */
     function affected_rows() {
         return mysql_affected_rows($this->mlink);

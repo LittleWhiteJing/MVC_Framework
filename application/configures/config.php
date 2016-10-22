@@ -17,4 +17,5 @@ define('DB_TABLEPRE', 'mvc_');
 define('DB_CONNECT', 0);
 
 define('WEB_CHARSET', 'UTF-8');
+
 ?>

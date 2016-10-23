@@ -1,4 +1,5 @@
-﻿<?php 
+﻿<?php
+/* MVC框架示例控制器文件 */ 
 !defined('TOKEN') && exit("Access denied!"); 
 
 class welcome extends base{
@@ -10,26 +11,18 @@ class welcome extends base{
 	}
 	
 	public function index(){
-		$data['app'] = "welcome";
+		$data['app'] = "application";
 		$data['controller'] = "welcome";
 		$data['method'] = "index";
 		$this->load->view('welcome',$data);
 	}
 	
 	public function show(){ 
-	    $sql = "select * from mvc_userinfo";
-		$res = $this->db->fetch_first($sql);
-		echo $res['username'];
-		echo "--------";
-		echo $res['password'];
-		redirect('welcome','test');
+		$this->load->model('mwelcome');
+		$data['info'] = $this->mwelcome->getuserinfo();
+		$this->load->view('welcome',$data);
 	}
-	
-	public function test(){
-		echo "This is the method to jump!";
-	}
-	
-	
+		
 	public function message(){
 		
 	}

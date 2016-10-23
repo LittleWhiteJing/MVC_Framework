@@ -34,4 +34,17 @@ function redirect($controller,$method){
 	header('Location:'.$pathstr);
 }
 
+//获取当前所在的控制器和方法，返回数组
+function getcurrcm(){
+	$pathstr = $_SERVER['QUERY_STRING'];
+	$posarr = explode('&',$pathstr);
+	$pos1 = strrpos($posarr[0],'=');
+	$pos2 = strrpos($posarr[1],'=');
+	if($pos1 !== false)
+		$arr['controller'] = substr($posarr[0],$pos1+1);
+	if($pos2 !== false)
+		$arr['method'] = substr($posarr[1],$pos2+1);
+	return $arr;
+}
+
 ?>

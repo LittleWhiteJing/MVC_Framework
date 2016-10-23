@@ -40,25 +40,23 @@ class core{
 		 */
 
 		
-			//普通模式
+		//普通模式
 		$querystring = isset($_SERVER['QUERY_STRING']) ? $_SERVER['QUERY_STRING'] : '';
-		$pos = strrpos($querystring, '&');
-		if ($pos !== false) {
-			$param1 = substr($querystring, 0, $pos);
-			$param2 = substr($querystring,$pos+1);
-			$tmp1 = strrpos($param1,'=');
-			$tmp2 = strrpos($param2,'=');	
+		$posarr = explode('&', $querystring);
+		if (!empty($posarr)) {
+			$tmp1 = strrpos($posarr[0],'=');
+			$tmp2 = strrpos($posarr[1],'=');	
 			/**
 			*此处可以设置一个url字符映射机制
 			*
 			*/
 			//捕获控制器
 			if($tmp1 !== false)
-				$this->controller = substr($param1,$tmp1+1);
+				$this->controller = substr($posarr[0],$tmp1+1);
 	
 			//捕获方法
 			if($tmp2 !== false)
-				$this->method = substr($param2,$tmp2+1);
+				$this->method = substr($posarr[1],$tmp2+1);
 			
 		}
 		

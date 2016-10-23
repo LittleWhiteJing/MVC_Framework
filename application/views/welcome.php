@@ -1,11 +1,22 @@
-﻿<html>
+﻿<!-- 视图示例文件 -->
+<html>
 <head>
-	<title>测试视图</title>
-	<meta http-equiv = "text/html;charset=utf-8"/>
+	<title>示例视图</title>
+	<meta http-equiv = "content-type" content="text/html;charset=utf-8"/>
 </head>
 <body>
-	<h2>应用：<?php echo $app;?></h2>
-	<h2>控制器：<?php echo $controller;?></h2>
-	<h2>方法：<?php echo $method;?></h2>
+	<h2><?php echo isset($app) ? "应用:".$app : '';?></h2>
+	<h2><?php echo isset($controller) ? "控制器:".$controller : '';?></h2>
+	<h2><?php echo isset($method) ? "方法:".$method : '';?></h2>
+	<?php 
+		if(isset($info)){
+			foreach($info as $key => $value){
+				echo $value['username'];
+				echo "======";
+				echo $value['password'];
+				echo "<br>";
+			}
+		}
+	?>
 </body>
 </html>

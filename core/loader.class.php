@@ -11,6 +11,7 @@ class loader {
 	}
 	
 	function model($modelname){
+		
 		$pos = strrpos($modelname,"/");
 		
 		if($pos !== false){
@@ -41,6 +42,20 @@ class loader {
 		}			
 		
 		include $filepath;
+	}
+	
+	function library($libname,$var = array()){
+		
+		$filepath = ROOT_DIR . 'lib/' . $libname . '.class.php';
+		
+		include $filepath;
+		
+		if(!empty($var))
+			$classobj = new $libname($var);
+		else
+			$classobj = new $libname();
+		
+		$this->baseobj->set_var($libname,$classobj);
 	}
 	
 	

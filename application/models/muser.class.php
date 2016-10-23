@@ -21,6 +21,20 @@ class muser extends mbase{
 		else
 			return false;
 	}
+	
+	public function getsomeinfo($offset,$nums){
+		$sql = "select * from mvc_userinfo limit ".$offset.",".$nums;
+		$res = $this->db->fetch_all($sql);
+		return $res;
+	}
+	
+	public function fetchnumrows(){
+		$sql = "select * from mvc_userinfo";
+		$res = $this->db->query($sql);
+		$num = $this->db->num_rows($res);
+		return $num;
+	}
+	
 }
 
 ?>

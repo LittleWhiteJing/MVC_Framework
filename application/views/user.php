@@ -27,6 +27,8 @@
 				}
 			?>
 		</table>
+		<?php echo $link;?>
+		<br>
 		<a href = "<?php echo controlmap('user','show');?>">添加用户信息</a>
 	</body>
 </html>

@@ -1,4 +1,5 @@
 <?php
+/* 模型示例文件 */
 !defined('TOKEN') && exit("Access denied!");
 
 class mwelcome extends mbase{
@@ -7,12 +8,10 @@ class mwelcome extends mbase{
 		parent::__construct();
 	}
 	
-	function test(){
+	function getuserinfo(){
 		$sql = "select * from mvc_userinfo";
-		$res = $this->db->fetch_first($sql);
-		echo $res['username'];
-		echo "--------";
-		echo $res['password'];
+		$res = $this->db->fetch_all($sql);
+		return $res;
 	}
 	
 }
